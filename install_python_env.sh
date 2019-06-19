@@ -55,7 +55,7 @@ else
     echo "Sorry. You have "$ENV_FOR_PYTHON2"."
 fi
 
-if [[ $(pyenv versions | grep -c "/envs/"$ENV_FOR_PYTHON2"") -eq 0 ]]; then
+if [[ $(pyenv versions | grep -c "/envs/"$ENV_FOR_PYTHON3"") -eq 0 ]]; then
     pyenv virtualenv "$VERSION_PYTHON3" "$ENV_FOR_PYTHON3"
 else
     echo "Sorry. You have "$ENV_FOR_PYTHON3"."
