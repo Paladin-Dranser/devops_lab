@@ -49,14 +49,14 @@ if [[ $(pyenv versions | grep -c "$VERSION_PYTHON3") -eq 0 ]]; then
 fi
 
 # create virtualenv environments
-if [[ $(pyenv versions | grep -c "/env/"$ENV_FOR_PYTHON2"") -eq 0 ]]; then
+if [[ $(pyenv versions | grep -c "/envs/"$ENV_FOR_PYTHON2"") -eq 0 ]]; then
     pyenv virtualenv "$VERSION_PYTHON2" "$ENV_FOR_PYTHON2"
 else
-    echo "Error. You have "$ENV_FOR_PYTHON2"."
+    echo "Sorry. You have "$ENV_FOR_PYTHON2"."
 fi
 
-if [[ $(pyenv versions | grep -c "/env/"$ENV_FOR_PYTHON2"") -eq 0 ]]; then
+if [[ $(pyenv versions | grep -c "/envs/"$ENV_FOR_PYTHON2"") -eq 0 ]]; then
     pyenv virtualenv "$VERSION_PYTHON3" "$ENV_FOR_PYTHON3"
 else
-    echo "Error. You have "$ENV_FOR_PYTHON3"."
+    echo "Sorry. You have "$ENV_FOR_PYTHON3"."
 fi
