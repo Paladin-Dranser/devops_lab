@@ -12,4 +12,4 @@ for i in range(number):
 
 print("Friends: %s" % ', '.join(sorted(friends)))
 print("Mutual Friends: %s" % ', '.join(sorted(friends & followers)))
-print("Also Friend of: %s" % ', '.join(followers - friends))
+print("Also Friend of: %s" % ', '.join(sorted(followers - friends)))
