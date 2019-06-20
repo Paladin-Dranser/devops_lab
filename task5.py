@@ -2,8 +2,8 @@ def is_one_row(word: str, row: tuple) -> bool:
     for letter in word:
         if letter.lower() not in row:
             return False
-    else:
-        return True
+
+    return True
 
 
 top_row = tuple('qwertyuiop')
