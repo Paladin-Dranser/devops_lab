@@ -14,11 +14,7 @@ words = list(input().split())
 
 one_row_words = list()
 for word in words:
-    if (
-        is_one_row(word, top_row)
-        or is_one_row(word, middle_row)
-        or is_one_row(word, bottom_row)
-    ):
+    if is_one_row(word, top_row) or is_one_row(word, middle_row) or is_one_row(word, bottom_row):
         one_row_words.append(word)
 
 print(*one_row_words)
