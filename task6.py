@@ -1,6 +1,6 @@
 number_students, number_subjects = list(map(int, input().split()))
 
-marks = list()
+marks = []
 for subject in range(number_subjects):
     marks.append(tuple(map(float, input().split())))
 
