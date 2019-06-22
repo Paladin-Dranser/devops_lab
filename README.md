@@ -1,32 +1,32 @@
-### Monitoring
+# Monitoring
 
-### Description
+## Description
 
 This Python apps does snapshot of system information every given time interval and  writes to the log file.
 
-### Installation
+## Installation
 
 pip install `devoups_lab/monitoring-1.0-py3-none-any.whl`
 
-### HowTo
+## HowTo
 
-# import
+### import
 
 import monitoring.monitoring
 import monitoring.monitoring as monitoring
 
-# Settings
+### Settings
 Function `set_interval(int)` - set interval to do a snapshot (min)
 Function `set_file_name(str)` - set file name
 Function `set_file_type(str)` - set file type
 
-# Running
+### Running
 
 Function `run()`
 
-### Example
+## Example
 
-# program
+### program
 `
 import monitoring.monitoring
 
@@ -44,7 +44,7 @@ monitoring.monitoring.set_interval(1)
 monitoring.monitoring.set_file_type('json')
 monitoring.monitoring.run()
 `
-# json output file
+### json output file
 `
 {
     "Snapshot 1": {
@@ -75,7 +75,7 @@ monitoring.monitoring.run()
 ...
 `
 
-# plain output file
+### plain output file
 `
 Snapshot 1:
 timestamp Sat Jun 22 10:19:29 2019;
