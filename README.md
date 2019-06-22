@@ -6,7 +6,7 @@ This Python apps does snapshot of system information every given time interval a
 
 ## Installation
 
-pip install `devoups_lab/monitoring-1.0-py3-none-any.whl`
+`pip install devoups_lab/monitoring-1.0-py3-none-any.whl`
 
 ## HowTo
 
