@@ -12,27 +12,29 @@ pip install `devoups_lab/monitoring-1.0-py3-none-any.whl`
 
 ### import
 
-`import monitoring.monitoring` \
-`import monitoring.monitoring as monitoring` \
+import monitoring.monitoring
+import monitoring.monitoring as monitoring
 
 ### Settings
 Function `set_interval(int)` - set interval to do a snapshot (min) \
 Function `set_file_name(str)` - set file name \
-Function `set_file_type(str)` - set file type \
+Function `set_file_type(str)` - set file type
 
 ### Running
 
-Function `run()`
+Function `run()` -start doing snapshots
 
 ## Example
 
 ### program
 
-`import monitoring.monitoring `
+<pre>
+import monitoring.monitoring
 
-`monitoring.monitoring.set_interval(1) ` \
-`monitoring.monitoring.set_file_type('json') ` \
-`monitoring.monitoring.run() ` \
+monitoring.monitoring.set_interval(1)
+monitoring.monitoring.set_file_type('json')
+monitoring.monitoring.run()
+</pre>
 
 ### json output file
 
