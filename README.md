@@ -12,8 +12,10 @@ This Python apps does snapshot of system information every given time interval a
 
 ### import
 
+<pre>
 import monitoring.monitoring
 import monitoring.monitoring as monitoring
+</pre>
 
 ### Settings
 Function `set_interval(int)` - set interval to do a snapshot (min) \
