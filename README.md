@@ -27,7 +27,7 @@ Function `run()`
 ## Example
 
 ### program
-`
+
 import monitoring.monitoring
 
 monitoring.monitoring.set_interval(1)
@@ -43,9 +43,9 @@ import monitoring.monitoring
 monitoring.monitoring.set_interval(1)
 monitoring.monitoring.set_file_type('json')
 monitoring.monitoring.run()
-`
+
 ### json output file
-`
+
 {
     "Snapshot 1": {
         "timestamp": "Sat Jun 22 10:31:01 2019",
@@ -73,12 +73,10 @@ monitoring.monitoring.run()
             "free": "3470.96 Mb"
         },
 ...
-`
 
 ### plain output file
-`
+
 Snapshot 1:
 timestamp Sat Jun 22 10:19:29 2019;
 cpu: {'percent': 7.7, 'load_average_for_1_minute': 0.39, 'load_average_for_5_minutes': 1.14, 'load_average_for_10_minutes': 0.74};
 ...
-`
