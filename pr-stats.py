@@ -2,7 +2,6 @@ import argparse
 import requests
 import json
 from datetime import datetime
-from user import User
 
 
 def is_pull_younger(created_date: datetime, pull: json.dump) -> bool:
@@ -64,14 +63,14 @@ parser.add_argument('-r', '--repository', type=str,
 
 args = parser.parse_args()
 
-user = User(args.user, read_token())
+token = read_token()
 repo = args.repository
 
 session = requests.Session()
-session.auth = (user.name, user.token)
+session.auth = (args.user, token)
 
 if args.all:
-    url = f'https://api.github.com/repos/{user.name}/{repo}/pulls'
+    url = f'https://api.github.com/repos/{args.user}/{repo}/pulls'
     params = {
         'state': 'all',
         'per_page': 100
@@ -89,7 +88,7 @@ if args.all:
             print(f'Pull {pull["number"]} - {pull["title"]}')
 
 if args.rate:
-    url = f'https://api.github.com/repos/{user.name}/{repo}/pulls'
+    url = f'https://api.github.com/repos/{args.user}/{repo}/pulls'
     params = {
         'state': 'all',
         'per_page': 100
@@ -124,7 +123,7 @@ if args.rate:
 
 if args.pull and args.open:
     try:
-        url = f'https://api.github.com/repos/{user.name}/{repo}/pulls/{args.pull}'
+        url = f'https://api.github.com/repos/{args.user}/{repo}/pulls/{args.pull}'
         pull = session.get(url).json()
         print(f'{pull["user"]["login"]} opened pull {args.pull}')
     except KeyError:
@@ -132,7 +131,7 @@ if args.pull and args.open:
 
 if args.pull and args.comments:
     try:
-        url = f'https://api.github.com/repos/{user.name}/{repo}/pulls/{args.pull}/comments'
+        url = f'https://api.github.com/repos/{args.user}/{repo}/pulls/{args.pull}/comments'
         print(f'The pull has {len(session.get(url).json())} comment(s)')
     except KeyError:
         print("Wrong pull number!")
@@ -140,7 +139,7 @@ if args.pull and args.comments:
 if args.date and args.after and not args.before:
     date = datetime.strptime(args.date, '%Y-%m-%d')
 
-    url = f'https://api.github.com/repos/{user.name}/{repo}/pulls'
+    url = f'https://api.github.com/repos/{args.user}/{repo}/pulls'
     params = {
         'state': 'all',
         'per_page': 100
@@ -162,7 +161,7 @@ if args.date and args.after and not args.before:
 if args.date and args.before and not args.after:
     date = datetime.strptime(args.date, '%Y-%m-%d')
 
-    url = f'https://api.github.com/repos/{user.name}/{repo}/pulls'
+    url = f'https://api.github.com/repos/{args.user}/{repo}/pulls'
     params = {
         'state': 'all',
         'per_page': 100
