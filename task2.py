@@ -23,12 +23,12 @@ def is_correct_equation(equation: str) -> str:
         )
 
         if int(regex_match.group(4)) == result:
-            print('YES')
+            return 'YES'
         else:
-            print('NO')
+            return 'NO'
     else:
-        print('ERROR')
+        return 'ERROR'
 
 
 if __name__ == '__main__':
-    string = input()
+    print(is_correct_equation(input('Enter an equation: ')))
