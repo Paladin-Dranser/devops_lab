@@ -7,8 +7,7 @@ import yaml
 information = {
     'version': subprocess.check_output(
         ['python', '-V'], universal_newlines=True).split('\n')[0],
-    'virtual_environment': subprocess.check_output(
-        ['pyenv', 'version-name'], universal_newlines=True).split('\n')[0],
+    'virtual_environment': sys.prefix,
     'executable': sys.executable,
     'pip_location': subprocess.check_output(
         ['which', 'pip'], universal_newlines=True).split('\n')[0],
