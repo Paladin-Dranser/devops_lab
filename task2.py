@@ -1,33 +1,34 @@
-import subprocess
-import sys
-import json
-import yaml
+import re
 
 
-information = {
-    'version': subprocess.check_output(
-        ['python', '-V'], universal_newlines=True).split('\n')[0],
-    'virtual_environment': subprocess.check_output(
-        ['pyenv', 'version-name'], universal_newlines=True).split('\n')[0],
-    'executable': sys.executable,
-    'pip_location': subprocess.check_output(
-        ['which', 'pip'], universal_newlines=True).split('\n')[0],
-    'pythonpath': sys.path,
-    'site-packages_location': next(p for p in sys.path if 'site-packages' in p)
-}
+def calculate(number1: int, number2: int, operation: str) -> int:
+    """Calculate result"""
+    if operation == '+':
+        return number1 + number2
+    elif operation == '-':
+        return number1 - number2
+    elif operation == '*':
+        return number1 * number2
+    elif operation == '/':
+        return number1 / number2
 
-# [:-1] - delete last empty string
-modules = subprocess.check_output(
-    ['pip', 'freeze'], universal_newlines=True).split('\n')[:-1]
-dict_modules = {}
-for module in modules:
-    temp = module.split('==')
-    dict_modules[temp[0]] = temp[1]
 
-information['modules'] = dict_modules
+def is_correct_equation(equation: str) -> str:
+    regex_match = re.match(r'(-?\d+)([*/+-])(-?\d+)=(-?\d+)', equation)
+    if regex_match:
+        result = calculate(
+            int(regex_match.group(1)),
+            int(regex_match.group(3)),
+            regex_match.group(2)
+        )
 
-with open('information.json', 'w') as file:
-    json.dump(information, file, indent=4)
+        if int(regex_match.group(4)) == result:
+            print('YES')
+        else:
+            print('NO')
+    else:
+        print('ERROR')
 
-with open('information.yaml', 'w') as file:
-    yaml.dump(information, file, default_flow_style=False, indent=4)
+
+if __name__ == '__main__':
+    string = input()
