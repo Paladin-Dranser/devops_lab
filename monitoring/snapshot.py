@@ -71,13 +71,13 @@ class Snapshot:
 
         data.append(
             f'Snapshot {len(data) // 8 + 1}:\n'
-            + f'timestamp {datetime.datetime.now().ctime()};\n'
-            + f'cpu: {str(self.cpu.cpu)};\n'
-            + f'physical_memory: {str(self.memory.physical_memory)};\n'
-            + f'virtual_memory: {str(self.memory.virtual_memory)};\n'
-            + f'swap_memory: {str(self.memory.swap_memory)};\n'
-            + f'input/output_disk: {str(self.io_disk.io_disk)};\n'
-            + f'interfaces: {str(self.network.interfaces)};\n'
+            f'timestamp {datetime.datetime.now().ctime()};\n'
+            f'cpu: {str(self.cpu.cpu)};\n'
+            f'physical_memory: {str(self.memory.physical_memory)};\n'
+            f'virtual_memory: {str(self.memory.virtual_memory)};\n'
+            f'swap_memory: {str(self.memory.swap_memory)};\n'
+            f'input/output_disk: {str(self.io_disk.io_disk)};\n'
+            f'interfaces: {str(self.network.interfaces)};\n'
         )
 
         with open(file, 'w') as plain_file:
