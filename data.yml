@@ -1,0 +1,9 @@
+apache_vhosts:
+  - servername: www.antos.tld
+    documentroot: /www/antos
+    serveradmin: www-admin@foo.antos.com
+    directorypath: /usr/local/httpd/antos
+  - servername: www.bucko.tld
+    documentroot: /www/bucko
+    serveradmin: www-admin2@foo.bucko.com
+    directorypath: /usr/local/httpd/bucko
