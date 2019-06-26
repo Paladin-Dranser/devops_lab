@@ -1,0 +1,7 @@
+{
+  "settings": {
+    "file": "monitor",
+    "type": "json",
+    "interval": 5
+  }
+}
